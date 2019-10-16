@@ -101,35 +101,14 @@ function setEventListeners(){
     });
 }
 
-function evalEquation(string){
-    let arr = string.split(" ");
-    let result = 0;
-    let a = parseFloat(arr[0], 10);
-    let b = parseFloat(arr[2], 10);
-    let op = arr[1];
-    result = operate(a, b, op);
-    //if just one number is entered, return that number
-    if (arr.length === 1){
-        result = a;
-    }
-    //if there is only one number and one operator, return the number
-    if (arr[2] === ""){
-        result = parseFloat(arr[0]);
-    }
-    //snarky reply for dividing by zero
-    if (result === "div by zero"){
-        return "Try dividing by zero one more time";
-    }
-    //if the number is not an integer, only display 4 decimal places
-    if (result % 1 != 0){
-        return result.toFixed(4);
+function evalEquation (string){
+    let result = eval(string);
+    if (result === Infinity || result === -Infinity){
+        result = "Try dividing by zero one more time"
+    }else if (result % 1 != 0){
+        result = result.toFixed(4);
     }
     return result;
-}
-
-function evalEquationLong (string){
-    let arr = string.split(" ");
-    console.log(arr);
 }
 
 setEventListeners();
