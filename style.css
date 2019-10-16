@@ -8,7 +8,7 @@ body {
     background-color: grey;
 }
 
-#button-container {
+.button-container {
     width: 400px;
     height: 400px;
     display: grid;
@@ -19,6 +19,12 @@ body {
     border-width: 1px;
     grid-template-columns: 1fr 1fr 1fr;
     
+}
+
+#secondary {
+    width: 400px;
+    height: 70px;
+    grid-template-columns: 1fr 1fr;
 }
 
 #display-container {
@@ -39,6 +45,11 @@ body {
 
 button {
     font-size: 20px;
+    background-color: rgb(221, 221, 221);
+}
+
+button:hover{
+    background-color: rgb(200, 200, 200);
 }
 
 .clear {
