@@ -47,6 +47,7 @@ const opDivide = document.getElementById("divide");
 const opEquals = document.getElementById("equals");
 const display = document.getElementById("display");
 const clearButton = document.getElementById("clear-button");
+const backButton = document.getElementById("backspace-button");
 
 function setEventListeners(){
     num1.addEventListener("click", function(){
@@ -99,16 +100,28 @@ function setEventListeners(){
         display.innerHTML = "";
         display.innerHTML += result;
     });
+    backButton.addEventListener("click", function(){
+        display.innerHTML = backspace(display.innerHTML);
+    });
 }
 
 function evalEquation (string){
     let result = eval(string);
+    let countDecimals = function (value) {
+        if(Math.floor(value) === value) return 0;
+        return value.toString().split(".")[1].length || 0; 
+    }
+    let numDec = countDecimals(result);
     if (result === Infinity || result === -Infinity){
         result = "Try dividing by zero one more time"
-    }else if (result % 1 != 0){
+    }else if (result % 1 != 0 && numDec > 4 && result > 0.0001){
         result = result.toFixed(4);
     }
     return result;
+}
+
+function backspace(string){
+    return string.slice(0, -1);
 }
 
 setEventListeners();
