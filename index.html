@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Calculator</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -11,7 +12,7 @@
             <p id="display"></p>
         </div>
 
-        <div id="button-container">
+        <div class="button-container" id="main">
             <button id="button-1" class="numeric">1</button>
             <button id="button-2" class="numeric">2</button>
             <button id="button-3" class="numeric">3</button>
@@ -26,11 +27,12 @@
             <button id="minus" class="operator">-</button>
             <button id="multiply" class="operator">*</button>
             <button id="divide" class="operator">/</button>
-            <button id="equals" class="operator">=</button>
+            <button id="backspace-button">&lt;=</button>
         </div>
 
-        <div class="clear">
+        <div class="button-container" id="secondary">
             <button id="clear-button">clear</button>
+            <button id="equals" class="operator">=</button>
         </div>
     </div>
     <script src="script.js"></script>
