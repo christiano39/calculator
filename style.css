@@ -57,6 +57,7 @@ body {
     justify-content: center;
     font-weight: bold;
     color: rgba(33, 33, 33, 0.731);
+    margin-right: 5px;
 }
 
 button {
