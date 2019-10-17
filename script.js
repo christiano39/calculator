@@ -127,7 +127,7 @@ function evalEquation (string){
     let numDec = countDecimals(result);
     if (result === Infinity || result === -Infinity){
         result = "Try dividing by zero one more time"
-    }else if (result % 1 != 0 && numDec > 4 && result > 0.0001){
+    }else if (result % 1 != 0 && numDec > 4 && (result > 0.0001 || result < -0.0001)){
         result = result.toFixed(4);
     }
     return result;
