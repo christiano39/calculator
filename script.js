@@ -16,6 +16,7 @@ const opEquals = document.getElementById("equals");
 const display = document.getElementById("display");
 const clearButton = document.getElementById("clear-button");
 const backButton = document.getElementById("backspace-button");
+const decimalButton = document.getElementById("decimal");
 
 function setEventListeners(){
     //button listeners
@@ -71,6 +72,9 @@ function setEventListeners(){
     });
     backButton.addEventListener("click", function(){
         display.innerHTML = backspace(display.innerHTML);
+    });
+    decimalButton.addEventListener("click", function(){
+        display.innerHTML += ".";
     });
     //key listeners
     document.addEventListener('keydown', (e) => {
