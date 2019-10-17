@@ -1,35 +1,3 @@
-function add(a, b){
-    return a + b;
-}
-
-function subtract(a, b){
-    return a - b;
-}
-
-function multiply(a, b){
-    return a * b;
-}
-
-function divide(a, b){
-    return a / b;
-}
-
-function operate(a, b, op){
-    let result = 0;
-    if (op === "+"){
-        result = add(a, b);
-    }else if (op === "-"){
-        result = subtract(a, b);
-    }else if (op === "*"){
-        result = multiply(a, b);
-    }else if (op === "/"){
-        if (b === 0) return "div by zero";
-        result = divide(a, b);
-    }
-    return result;
-}
-
-//assign each button to a variable
 const num1 = document.getElementById("button-1");
 const num2 = document.getElementById("button-2");
 const num3 = document.getElementById("button-3");
@@ -50,6 +18,7 @@ const clearButton = document.getElementById("clear-button");
 const backButton = document.getElementById("backspace-button");
 
 function setEventListeners(){
+    //button listeners
     num1.addEventListener("click", function(){
         display.innerHTML += "1";
     });
@@ -102,6 +71,46 @@ function setEventListeners(){
     });
     backButton.addEventListener("click", function(){
         display.innerHTML = backspace(display.innerHTML);
+    });
+    //key listeners
+    document.addEventListener('keydown', (e) => {
+        if (e.code === "Digit1" || e.code === "Numpad1"){
+            display.innerHTML += "1";
+        }else if (e.code === "Digit2" || e.code === "Numpad2"){
+            display.innerHTML += "2";
+        }else if (e.code === "Digit3" || e.code === "Numpad3"){
+            display.innerHTML += "3";
+        }else if (e.code === "Digit4" || e.code === "Numpad4"){
+            display.innerHTML += "4";
+        }else if (e.code === "Digit5" || e.code === "Numpad5"){
+            display.innerHTML += "5";
+        }else if (e.code === "Digit6" || e.code === "Numpad6"){
+            display.innerHTML += "6";
+        }else if (e.code === "Digit7" || e.code === "Numpad7"){
+            display.innerHTML += "7";
+        }else if (e.code === "Digit8" || e.code === "Numpad8"){
+            display.innerHTML += "8";
+        }else if (e.code === "Digit9" || e.code === "Numpad9"){
+            display.innerHTML += "9";
+        }else if (e.code === "Digit0" || e.code === "Numpad0"){
+            display.innerHTML += "0";
+        }else if (e.code === "NumpadAdd" || (e.code === "Equal" && e.shiftKey)){
+            display.innerHTML += " + ";
+        }else if (e.code === "NumpadSubtract" || e.code === "Minus"){
+            display.innerHTML += " - ";
+        }else if (e.code === "NumpadMultiply" || (e.code === "Digit8" && e.shiftKey)){
+            display.innerHTML += " * ";
+        }else if (e.code === "NumpadDivide" || e.code === "Slash"){
+            display.innerHTML += " / ";
+        }else if (e.code === "Backspace"){
+            display.innerHTML = backspace(display.innerHTML);
+        }else if (e.code === "Enter" || e.code === "NumpadEnter"){
+            let result = evalEquation(display.innerHTML);
+            display.innerHTML = "";
+            display.innerHTML += result;
+        }else if (e.code === "NumpadDecimal" || e.code === "Period"){
+            display.innerHTML += ".";
+        }
     });
 }
 
