@@ -1,11 +1,14 @@
 @import url("reset.css");
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
 
 div {
     display: block;
 }
 
 body {
-    background-color: grey;
+    background-color: black;
+    background-image: url(math1.jpg);
+    font-family: 'Orbitron', sans-serif;
 }
 
 .button-container {
@@ -44,9 +47,23 @@ body {
     width: 400px;
 }
 
+#display {
+    font-family: 'Orbitron', sans-serif;
+}
+
 button {
     font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
     background-color: rgb(221, 221, 221);
+}
+
+.numeric {
+    font-weight: bold;
+}
+
+.operator {
+    font-weight: bold;
+    color: red;
 }
 
 button:hover{
@@ -58,5 +75,12 @@ button:hover{
 }
 
 .calc-container {
-    background-color: grey;
+    background-color: rgb(65, 66, 64);
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-radius: 20px;
 }
